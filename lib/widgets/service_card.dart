@@ -25,15 +25,18 @@ class ServiceCard extends StatelessWidget {
         //     arguments: id,
         //   );
         // },
-        child: Image.network(
-          "https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg",
-          height: 30,
-          fit: BoxFit.cover,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(6.0),
+          child: Image.network(
+            "https://marketage.io/$img",
+            height: 50,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
       footer: GridTileBar(
-        backgroundColor: Colors.black54,
-        title: Text(title),
+        backgroundColor: null,
+        title: Text(title, style: TextStyle(fontSize: 14.00)),
         // leading: IconButton(
         //   onPressed: () {
         //     Provider.of<ServiceController>(context, listen: false).favoritButton(id);
