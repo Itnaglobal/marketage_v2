@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketage_v2/controllers/service_controller.dart';
 import 'package:marketage_v2/screens/home_screen.dart';
+import 'package:marketage_v2/screens/service_wise_offer.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,14 +19,21 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => ServiceController()),
       ],
       child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const HomeScreen(),
+        //  ProductDetailsScreens.routeName: (ctx) => ProductDetailsScreens(),
+
+        // Routes//
+
+        routes: {
+          HomeScreen.routName: (ctx) => const HomeScreen(),
+          ServiceWiseOffer.routeName: (ctx) => const ServiceWiseOffer(),
+        },
       ),
-      home: const HomeScreen(),
-      ), 
     );
-    
   }
 }

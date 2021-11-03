@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketage_v2/controllers/service_controller.dart';
+import 'package:marketage_v2/widgets/offer_card.dart';
 import 'package:marketage_v2/widgets/service_card.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routName = "/home-screens";
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -54,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+        bottomNavigationBar: BottomAppBar(),
         body: ListView(
           // mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -93,8 +97,15 @@ class _HomeScreenState extends State<HomeScreen> {
               color: const Color(0xFFffffff),
             ),
 
-            // Divider(),
-            // ignore: sized_box_for_whitespace
+            Container(
+              margin: EdgeInsets.all(15.00),
+              height: 20,
+              child: const Text(
+                "POPULAR SERVICES",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+
             Container(
               padding: const EdgeInsets.all(8.0),
               height: 300,
@@ -113,6 +124,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }),
               ),
+            ),
+
+            // ignore: sized_box_for_whitespace
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 20,
+                child: Text(
+                  "TOP OFFERS",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+
+            Container(
+              height: 220,
+              width: double.infinity,
+              child: OfferCard(),
+            ),
+            Container(
+              height: 300,
+              width: double.infinity,
+              child: OfferCard(),
             ),
           ],
         ),

@@ -19,12 +19,12 @@ class ServiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: GestureDetector(
-        // onTap: () {
-        //   Navigator.of(context).pushNamed(
-        //     ServiceWiseOffer.routeName,
-        //     arguments: id,
-        //   );
-        // },
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            '/offer-details-screens',
+            arguments: id,
+          );
+        },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(6.0),
           child: Image.network(
