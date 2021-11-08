@@ -36,7 +36,9 @@ class ServiceCard extends StatelessWidget {
       ),
       footer: GridTileBar(
         backgroundColor: null,
-        title: Text(title, style: TextStyle(fontSize: 14.00)),
+        title: Text(title,
+            style:
+                const TextStyle(fontSize: 16.00, fontWeight: FontWeight.bold)),
         // leading: IconButton(
         //   onPressed: () {
         //     Provider.of<ServiceController>(context, listen: false).favoritButton(id);

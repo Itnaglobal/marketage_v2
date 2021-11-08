@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marketage_v2/controllers/category_controller.dart';
+import 'package:marketage_v2/controllers/offer_controller.dart';
 import 'package:marketage_v2/controllers/service_controller.dart';
 import 'package:marketage_v2/screens/home_screen.dart';
 import 'package:marketage_v2/screens/service_wise_offer.dart';
@@ -17,6 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => ServiceController()),
+        ChangeNotifierProvider(create: (ctx) => OfferController()),
+        ChangeNotifierProvider(create: (ctx) => CategoryController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

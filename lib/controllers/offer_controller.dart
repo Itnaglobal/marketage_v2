@@ -25,4 +25,8 @@ class OfferController with ChangeNotifier {
       return false;
     }
   }
+
+  List<OfferModel> get offers {
+    return [..._offers];
+  }
 }

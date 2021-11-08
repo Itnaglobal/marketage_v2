@@ -27,4 +27,8 @@ class CategoryController with ChangeNotifier {
       return false;
     }
   }
+
+  List<CategoryModel> get category {
+    return [..._categories];
+  }
 }
