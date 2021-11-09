@@ -30,53 +30,58 @@ class OfferCard extends StatelessWidget {
     return Column(
       // mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          height: 310,
-          width: 290,
-          child: Card(
-            child: Column(
-              children: [
-                Container(
-                  child: Image.network(
-                    "https://marketage.io/$image",
-                    fit: BoxFit.fill,
-                    height: 200,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    // height: 20,
-                    child: Text(
-                      offerTitle,
-                      style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.bold)),
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed("/offer-details", arguments: id);
+          },
+          child: Container(
+            height: 310,
+            width: 290,
+            child: Card(
+              child: Column(
+                children: [
+                  Container(
+                    child: Image.network(
+                      "https://marketage.io/$image",
+                      fit: BoxFit.fill,
+                      height: 200,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(80),
-                        child: Image.network(
-                          "https://marketage.io/$image",
-                          height: 30,
-                          width: 25,
-                          fit: BoxFit.fill,
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      // height: 20,
+                      child: Text(
+                        offerTitle,
+                        style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.bold)),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(user.toString()),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(80),
+                          child: Image.network(
+                            "https://marketage.io/$image",
+                            height: 30,
+                            width: 25,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(user.toString()),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
