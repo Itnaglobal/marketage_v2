@@ -18,7 +18,7 @@ class _CategoryWiseOfferState extends State<CategoryWiseOffer> {
 
   @override
   void didChangeDependencies() async {
-    if (!_init) {
+    if (_init) {
       _isLoading = await Provider.of<SubcategoryController>(context).getSubs();
       setState(() {});
     }
@@ -62,20 +62,23 @@ class _CategoryWiseOfferState extends State<CategoryWiseOffer> {
                     style: TextStyle(
                       fontSize: 16,
                     ))),
-            Container(
-              height: 120,
-              color: Colors.white,
-              child: GridView.count(
-                  crossAxisCount: 1,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(subs.length, (i) {
-                    return SubCategoryCard(
-                      id: subs[i].id,
-                      subTitle: subs[i].subTitle,
-                      subImg: subs[i].subImg,
-                    );
-                  })),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 120,
+                color: Colors.white,
+                child: GridView.count(
+                    crossAxisCount: 1,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(subs.length, (i) {
+                      return SubCategoryCard(
+                        id: subs[i].id,
+                        subTitle: subs[i].subTitle,
+                        subImg: subs[i].subImg,
+                      );
+                    })),
+              ),
             ),
           ],
         ),

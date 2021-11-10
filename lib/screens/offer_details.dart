@@ -1,5 +1,9 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:marketage_v2/controllers/offer_controller.dart';
+import 'package:marketage_v2/widgets/offer_card.dart';
+import 'package:provider/provider.dart';
 
 class OfferDetails extends StatelessWidget {
   static const routeName = "/offer-details";
@@ -8,41 +12,44 @@ class OfferDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final id = ModalRoute.of(context)!.settings.arguments;
+    final offer_details =
+        Provider.of<OfferController>(context).offerDetails(id);
+    final offer = Provider.of<OfferController>(context).offers;
+
     return Scaffold(
+      appBar: AppBar(),
       body: ListView(
         children: [
           SizedBox(
             height: 200,
             width: double.infinity,
             child: Carousel(
+              dotBgColor: Colors.transparent,
               dotSize: 0.0,
               autoplay: false,
               animationDuration: const Duration(milliseconds: 2000),
               images: [
-                Image.asset(
-                  'image/a.jpg',
+                Image.network(
+                  'https://marketage.io/${offer_details.image}',
                   fit: BoxFit.cover,
                 ),
-                Image.asset(
-                  'image/b.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'image/c.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'image/d.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'image/e.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'image/f.jpg',
-                  fit: BoxFit.cover,
-                ),
+                // Image.network(
+                //   'https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp',
+                //   fit: BoxFit.cover,
+                // ),
+                // Image.network(
+                //   'https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp',
+                //   fit: BoxFit.cover,
+                // ),
+                // Image.network(
+                //   'https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp',
+                //   fit: BoxFit.cover,
+                // ),
+                // Image.network(
+                //   'https://i.insider.com/5ca389adc6cc503c5a53fd96?width=500&format=jpeg&auto=webp',
+                //   fit: BoxFit.cover,
+                // ),
               ],
             ),
           ),
@@ -61,18 +68,19 @@ class OfferDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                const CircleAvatar(
+                CircleAvatar(
+                  backgroundImage: NetworkImage("https://marketage.io/${offer_details.image}"),
                   backgroundColor: Color(0xFF797a7d),
                 ),
-                const Text(
-                  'User Name',
+                Text(
+                  '${offer_details.user}',
                   style: TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Text(
-                  'User Level',
+                Text(
+                  '1',
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -82,26 +90,30 @@ class OfferDetails extends StatelessWidget {
           ),
           // ignore: avoid_unnecessary_containers
           Container(
-            child: const Text(
-              'Be Your Front End Developer and Designer',
-              style: TextStyle(
+            child: Text(
+              '${offer_details.offerTitle}',
+              style: const TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
           Container(
-            height: 20,
+            height: 15,
           ),
           // ignore: avoid_unnecessary_containers
           Container(
             margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            padding: const EdgeInsets.all(10),
             child: const Text(
-              'I am a professional Senior Front End developer as a PSD2HTML expert with 5+ years of experience \nIn my Five years of career, I have completed more than 300 projects in different languages and frameworks. \nI have a strong grip as a Front End developer on HTML5, CSS3, Bootstrap4, Jquery, Javascript, SASS, React. \nif you want to convert your (psd to html, xd to html, sketch to html, psd to wordpress, psd to react), then you are at the right places and we can discuss the work and continue.',
+              'bla bla bla bla',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
+          ),
+          Container(
+            height: 15,
           ),
         ],
       ),

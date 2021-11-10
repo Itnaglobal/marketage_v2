@@ -29,4 +29,8 @@ class OfferController with ChangeNotifier {
   List<OfferModel> get offers {
     return [..._offers];
   }
+
+  OfferModel offerDetails(id) {
+    return _offers.firstWhere((element) => element.id == id);
+  }
 }
